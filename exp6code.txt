@@ -1,0 +1,148 @@
+#!/bin/bash
+echo "Enter your first number:"
+read a
+echo "Enter your second number:"
+read b
+
+sum=$((a+b))
+diff=$((a-b))
+mul=$((a*b))
+div=$((a/b))
+mod=$((a%b))
+exp=$((a**b))
+
+echo "Answers:"
+echo "Sum = $sum"
+echo "Difference = $diff"
+echo "Product = $mul"
+echo "Quotient = $div"
+echo "Remainder = $mod"
+echo "Result = $exp"
+
+
+
+
+#!/bin/bash
+echo "Enter Principal amount (P):"
+read p
+echo "Enter Rate of interest (R):"
+read r
+echo "Enter Time (T):"
+read t
+
+si=$(echo "scale=2; ($p * $r * $t)/100" | bc)
+amount=$(echo "scale=2; $p * (1 + $r/100)^$t" | bc)
+ci=$(echo "scale=2; $amount - $p" | bc)
+
+echo "Results:"
+echo "Simple Interest: $si"
+echo "Total Amount (SI): $(echo "$p + $si" | bc)"
+echo "Compound Interest: $ci"
+echo "Total Amount (CI): $amount"
+
+
+
+
+
+
+
+#!/bin/bash
+echo "Enter Year to be checked:"
+read y
+
+if [ $((y%4)) -ne 0 ]; then
+    echo "$y is not a leap year"
+elif [ $((y%100)) -ne 0 ]; then
+    echo "$y is a leap year"
+elif [ $((y%400)) -eq 0 ]; then
+    echo "$y is a leap year"
+else
+    echo "$y is not a leap year"
+fi
+
+
+
+
+
+
+
+
+
+
+
+
+
+#!/bin/bash
+echo "Enter First String:"
+read s1
+echo "Enter Second String:"
+read s2
+
+if [[ "$s1" == "$s2" ]]; then
+    echo "The two strings are equal"
+else
+    echo "The two strings are not equal"
+fi
+
+
+
+
+
+
+
+
+
+
+
+#!/bin/bash
+echo "Welcome to Menu-Driven Calculator"
+echo "Enter first number:"
+read a
+echo "Enter second number:"
+read b
+
+echo "Enter + for addition"
+echo "Enter - for subtraction"
+echo "Enter * for multiplication"
+echo "Enter / for division"
+echo "Enter % for modulus"
+echo "Enter symbol of operation:"
+read s
+
+case $s in
+    +) result=$((a+b));;
+    -) result=$((a-b));;
+    \*) result=$((a*b));;
+    /) result=$((a/b));;
+    %) result=$((a%b));;
+    *) echo "Invalid input"; exit;;
+esac
+
+echo "Result = $result"
+
+
+
+
+
+
+
+
+
+
+
+
+#!/bin/bash
+echo "Enter Employee Basic Salary:"
+read s
+
+hra=$((s*20/100))
+da=$((s*50/100))
+pf=$((s*11/100))
+
+gross=$((s + hra + da - pf))
+
+echo "Employee Basic Salary = $s"
+echo "HRA = $hra"
+echo "DA = $da"
+echo "PF = $pf"
+echo "Employee Pay = $gross"
